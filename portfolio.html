@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Imaging Center | Surat</title>
+    <style>
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- COLORS --- */
+        :root {
+            --primary: #0056b3; /* Medical Blue */
+            --secondary: #008cba; /* Lighter Blue */
+            --accent: #ffc107; /* Star Rating Gold */
+            --white: #ffffff;
+            --light-gray: #f4f4f4;
+            --text-dark: #2c3e50;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section { padding: 60px 0; }
+        
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-cta:hover { background: #004494; }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.8)), url('https://via.placeholder.com/1200x600?text=Medical+Facility+Background');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        #hero h1 { font-size: 3rem; margin-bottom: 15px; }
+        #hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        /* --- ABOUT SECTION --- */
+        #about { background: var(--white); text-align: center; }
+        .section-title { font-size: 2rem; color: var(--primary); margin-bottom: 40px; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+        }
+        .stat-card {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .stars { color: var(--accent); font-size: 1.2rem; }
+
+        /* --- SERVICES SECTION --- */
+        #services { background: var(--light-gray); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--secondary);
+        }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { margin-bottom: 15px; color: var(--text-dark); }
+        .service-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .service-list li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- LOCATION & CONTACT --- */
+        #contact { background: var(--white); }
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .contact-info, .hours-info { flex: 1; min-width: 300px; }
+        .info-item { margin-bottom: 20px; }
+        .info-item h4 { color: var(--primary); margin-bottom: 5px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; height: auto; padding: 15px; }
+            .nav-links { margin-top: 15px; flex-direction: column; text-align: center; gap: 10px; }
+            .about-grid { grid-template-columns: 1fr; }
+            #hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Divine Imaging Center</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn-cta">Book Appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Precision in Diagnosis</h1>
+            <p>Reliable X-Ray, Sonography, and Pathology Services in Isroli, Surat.</p>
+            <a href="#contact" class="btn-cta" style="background: var(--white); color: var(--primary);">Visit Us Today</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Divine Imaging Center is a premier diagnostic facility located in Isroli, Surat. We combine modern technology with a commitment to patient care, ensuring high-quality imaging and laboratory services in a sterile environment.</p>
+                    <br>
+                    <p><strong>Why Choose Us?</strong></p>
+                    <ul style="margin-top:10px; list-style: circle; padding-left: 20px;">
+                        <li>Accurate & Timely Reports</li>
+                        <li>Sterile & Hygienic Facility</li>
+                        <li>Cooperative & Professional Staff</li>
+                    </ul>
+                </div>
+                <div class="stat-card">
+                    <h3>Rated 5.0 / 5.0</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Based on 75+ Reviews on Justdial</p>
+                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ddd;">
+                    <p><em>"Trustworthy, accurate, and friendly staff."</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Diagnostic Imaging</h3>
+                    <ul class="service-list">
+                        <li><strong>Sonography (Ultrasound):</strong> Abdominal, Pelvic, General.</li>
+                        <li><strong>Digital X-Ray:</strong> Bone & Soft Tissue Evaluation.</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Pathology & Lab</h3>
+                    <ul class="service-list">
+                        <li><strong>Clinical Pathology:</strong> CBC, Urine, Stool Microscopy.</li>
+                        <li><strong>Microbiology:</strong> Culture & Sensitivity Tests.</li>
+                        <li><strong>Biochemistry:</strong> Thyroid Profiles, CRP, Malaria Antigen.</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Specialized Testing</h3>
+                    <ul class="service-list">
+                        <li><strong>Molecular Diagnostics:</strong> RT-PCR (COVID-19).</li>
+                        <li><strong>Health Packages:</strong> Routine Checkups & Screening.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Location & Hours</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h4>Address</h4>
+                        <p>A/12, Gokul Vatika Dhamdod,<br>Isroli, Surat, Gujarat - 394620<br><em>(Near Sardar Baug)</em></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Contact</h4>
+                        <p>Phone: [Insert Phone Number]</p>
+                        <p>Email: [Insert Email Address]</p>
+                    </div>
+                </div>
+                <div class="hours-info">
+                    <div class="info-item">
+                        <h4>Opening Hours</h4>
+                        <table style="width: 100%; max-width: 300px; text-align: left;">
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Mon - Sat:</strong></td>
+                                <td>09:30 AM – 02:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Sunday:</strong></td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Divine Imaging Center. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Precision in Diagnosis, Excellence in Care.</p>
+    </footer>
+
+</body>
+</html>
