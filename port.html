@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Divine Imaging Center | Surat</title>
+    <style>
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            -webkit-font-smoothing: antialiased; /* Smoother text on iPhone */
+        }
+        a { text-decoration: none; color: inherit; display: inline-block; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; } /* Prevents images from overflowing */
+
+        /* --- COLORS --- */
+        :root {
+            --primary: #0056b3; 
+            --secondary: #008cba;
+            --accent: #ffc107; 
+            --white: #ffffff;
+            --light-gray: #f4f4f4;
+            --text-dark: #2c3e50;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section { padding: 60px 0; }
+        
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+            flex-wrap: wrap; /* Allows wrapping on small phones */
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
+        }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        .btn-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 25px;
+            border-radius: 50px; /* Pill shape */
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .btn-cta:hover { background: #004494; transform: scale(1.05); }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            /* Placeholder background - replace URL with your own image if desired */
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.7)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+        }
+        #hero h1 { font-size: 3rem; margin-bottom: 15px; line-height: 1.2; }
+        #hero p { font-size: 1.25rem; margin-bottom: 35px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* --- ABOUT SECTION --- */
+        #about { background: var(--white); }
+        .section-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 50px; text-align: center; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text p { font-size: 1.1rem; margin-bottom: 20px; color: #555; }
+        .stat-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stars { color: var(--accent); font-size: 1.5rem; margin: 10px 0; }
+
+        /* --- SERVICES SECTION --- */
+        #services { background: var(--light-gray); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--secondary);
+        }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { margin-bottom: 20px; color: var(--text-dark); font-size: 1.4rem; }
+        .service-list li { margin-bottom: 12px; position: relative; padding-left: 25px; color: #555; }
+        .service-list li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- LOCATION & CONTACT --- */
+        #contact { background: var(--white); }
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: center;
+        }
+        .contact-info, .hours-info { flex: 1; min-width: 300px; background: #fdfdfd; padding: 30px; border-radius: 10px; border: 1px solid #eee; }
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+        .info-item p, .info-item td { color: #555; font-size: 1.05rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS (The Important Part)
+           ========================================= */
+        @media (max-width: 768px) {
+            /* Adjust Header */
+            header { position: relative; } /* Unstick header on mobile to save screen space */
+            .navbar { flex-direction: column; padding-bottom: 20px; }
+            .nav-links { 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 15px; 
+                margin-top: 15px;
+                background: #f4f4f4; /* Subtle background for menu links */
+                padding: 20px;
+                border-radius: 8px;
+            }
+            .nav-links a { width: 100%; text-align: center; padding: 5px; }
+            .btn-cta { width: 100%; text-align: center; margin-top: 5px; }
+
+            /* Adjust Hero */
+            #hero { padding: 80px 20px; }
+            #hero h1 { font-size: 2.2rem; }
+            #hero p { font-size: 1.1rem; }
+
+            /* Adjust Sections */
+            section { padding: 40px 0; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            
+            /* Adjust Contact */
+            .contact-wrapper { gap: 30px; }
+            .contact-info, .hours-info { min-width: 100%; padding: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            #hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .service-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Divine Imaging</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn-cta">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Precision in Diagnosis</h1>
+            <p>Reliable X-Ray, Sonography, and Pathology Services in Isroli, Surat.</p>
+            <a href="#contact" class="btn-cta" style="background: var(--white); color: var(--primary) !important;">Visit Us Today</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Divine Imaging Center is a premier diagnostic facility located in Isroli, Surat. We combine modern technology with a commitment to patient care, ensuring high-quality imaging and laboratory services in a sterile environment.</p>
+                    <p><strong>Our Promise:</strong> To provide accurate reports that help doctors treat you better.</p>
+                    <ul style="margin-top:15px; list-style: none;">
+                        <li style="margin-bottom:8px;">✔ Sterile & Hygienic Facility</li>
+                        <li style="margin-bottom:8px;">✔ Cooperative & Professional Staff</li>
+                        <li style="margin-bottom:8px;">✔ Latest Diagnostic Technology</li>
+                    </ul>
+                </div>
+                <div class="stat-card">
+                    <h3>Rated 5.0 / 5.0</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Verified on Justdial (75+ Reviews)</p>
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                    <p style="font-style: italic; color: #777;">"Trustworthy, accurate, and friendly staff."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Diagnostic Imaging</h3>
+                    <ul class="service-list">
+                        <li><strong>Sonography (Ultrasound):</strong> Abdominal, Pelvic, General.</li>
+                        <li><strong>Digital X-Ray:</strong> Bone & Soft Tissue Evaluation.</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Pathology & Lab</h3>
+                    <ul class="service-list">
+                        <li><strong>Clinical Pathology:</strong> CBC, Urine, Stool Microscopy.</li>
+                        <li><strong>Microbiology:</strong> Culture & Sensitivity Tests.</li>
+                        <li><strong>Biochemistry:</strong> Thyroid, Malaria, CRP.</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Specialized Testing</h3>
+                    <ul class="service-list">
+                        <li><strong>Molecular Diagnostics:</strong> RT-PCR (COVID-19).</li>
+                        <li><strong>Health Packages:</strong> Routine Checkups & Screening.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Location & Hours</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h4>📍 Address</h4>
+                        <p>A/12, Gokul Vatika Dhamdod,<br>Isroli, Surat, Gujarat - 394620<br><em>(Near Sardar Baug)</em></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>📞 Contact</h4>
+                        <p>Phone: <strong>[Insert Number]</strong></p>
+                        <p>Email: [Insert Email]</p>
+                    </div>
+                </div>
+                <div class="hours-info">
+                    <div class="info-item">
+                        <h4>🕒 Opening Hours</h4>
+                        <table style="width: 100%; text-align: left; margin-top: 10px;">
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Mon - Sat:</strong></td>
+                                <td>09:30 AM – 02:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;"><strong>Sunday:</strong></td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Divine Imaging Center. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
